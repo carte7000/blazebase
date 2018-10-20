@@ -19,8 +19,9 @@ import { MapViewerComponent } from './map-viewer/map-viewer.component';
   ],
   imports: [
     RouterModule.forRoot([
-      { path: '', component: ReportFireComponent },
-      { path: 'map', component: MapViewerComponent }
+      { path: 'map', component: MapViewerComponent },
+      { path: '', component: AboutPageComponent},
+      { path: 'report', component: ReportFireComponent}
     ]),
     BrowserModule,
     DataModule,
