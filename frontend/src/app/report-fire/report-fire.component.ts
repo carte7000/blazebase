@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { UploadService } from '../data/upload.service';
 
 @Component({
   selector: 'app-report-fire',
@@ -8,6 +9,10 @@ import { Subject } from 'rxjs';
 })
 export class ReportFireComponent implements OnInit {
 
+  constructor(
+    private upload: UploadService,
+  ) {
+  }
 
   trigger = new Subject();
 
@@ -25,11 +30,13 @@ export class ReportFireComponent implements OnInit {
     });
   }
 
-  image(event) {
+  async image(event) {
+    const position = await this.getLocation();
+    const doc = await this.upload.createDocument(position as Position, event.imageAsDataUrl);
+    // const test = await this.upload.upload(`${doc.id}.dataUrl`, event.imageAsDataUrl);
+    // console.log(test);
     console.log(event);
   }
-
-  constructor() { }
 
   ngOnInit() {
   }

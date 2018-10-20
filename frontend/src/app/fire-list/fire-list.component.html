@@ -1,0 +1,9 @@
+<p>
+  fire-list works!
+</p>
+<ul>
+  <li *ngFor='let fire of fires$ | async'>
+    {{fire.long}} {{fire.lat}}
+    <img [src]='fire.image' />
+  </li>
+</ul>

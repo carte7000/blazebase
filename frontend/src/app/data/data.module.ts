@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
+import { UploadService } from './upload.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    AngularFireModule.initializeApp(environment.firebase)
   ],
-  declarations: []
+  declarations: [],
+  providers: []
 })
 export class DataModule { }
