@@ -7,7 +7,7 @@ import { environment } from '../environments/environment';
 import { DataModule } from './data/data.module';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ReportFireComponent } from './report-fire/report-fire.component';
-import { RouterModule } from '@angular/router',
+import { RouterModule } from '@angular/router';
 import { MapViewerComponent } from './map-viewer/map-viewer.component';
 
 @NgModule({
@@ -19,7 +19,8 @@ import { MapViewerComponent } from './map-viewer/map-viewer.component';
   ],
   imports: [
     RouterModule.forRoot([
-      { path: '', component: ReportFireComponent }
+      { path: '', component: ReportFireComponent },
+      { path: 'map', component: MapViewerComponent }
     ]),
     BrowserModule,
     DataModule,
