@@ -32,6 +32,13 @@ export class MapViewerComponent implements OnInit {
         type: 'geojson',
         data: '/assets/daily_data-2018-10-20 13:16:26.604023.geojson'
       });
+
+      // map.addLayer({
+      //   "id": "earthquakes-heat",
+      //   "type": "heatmap",
+      //   "source": "national-park",
+      //   "paint": {
+
       map.addLayer({
         "id": "earthquakes-heat",
         "type": "heatmap",
