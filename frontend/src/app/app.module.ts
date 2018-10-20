@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { DataModule } from './data/data.module';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,
