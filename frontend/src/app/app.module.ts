@@ -10,6 +10,11 @@ import { ReportFireComponent } from './report-fire/report-fire.component';
 import { RouterModule } from '@angular/router';
 import { MapViewerComponent } from './map-viewer/map-viewer.component';
 import { WebcamModule } from 'ngx-webcam';
+import { UploadService } from './data/upload.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { FireListComponent } from './fire-list/fire-list.component';
 
 @NgModule({
   declarations: [
@@ -17,19 +22,24 @@ import { WebcamModule } from 'ngx-webcam';
     AboutPageComponent,
     ReportFireComponent,
     MapViewerComponent,
+    FireListComponent,
   ],
   imports: [
     WebcamModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
+    AngularFirestoreModule,
     RouterModule.forRoot([
+      { path: 'list', component: FireListComponent },
       { path: 'map', component: MapViewerComponent },
-      { path: '', component: AboutPageComponent},
-      { path: 'report', component: ReportFireComponent}
+      { path: '', component: AboutPageComponent },
+      { path: 'report', component: ReportFireComponent }
     ]),
     BrowserModule,
     DataModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [UploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
