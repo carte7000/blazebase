@@ -1,8 +1,6 @@
 <br />
 <div class="container">
   <div class="row">
-    <webcam [trigger]='trigger' (imageCapture)='image($event)'></webcam>
-    <button (click)='click()'>Test</button>
     <div class="col-md-12 text-center">
       <br />
       <h2>Sooner a fire is listed, <br />
@@ -10,10 +8,8 @@
         And better are the chances of limiting negative impacts. </h2><br />
       <h3>You notice a fire?</h3>
       <p>Please take a photo of it with blazebase app. It only takes few minutes, but can make a big difference!</p>
-      <form action="/action_page.php">
-        Select a file: <input type="file" name="myFile"><br><br>
-        <input type="submit">
-      </form>
+      <webcam [trigger]='trigger' (imageCapture)='image($event)'></webcam><br/>
+      <button (click)='click()'>Test</button>
       <br />
     </div>
   </div>
