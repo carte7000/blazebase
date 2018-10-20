@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadService } from '../data/upload.service';
 import { tap } from 'rxjs/operators';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-fire-list',
@@ -13,6 +14,7 @@ export class FireListComponent implements OnInit {
 
   constructor(
     private upload: UploadService,
+    private domSan: DomSanitizer,
   ) { }
 
   async ngOnInit() {
@@ -25,7 +27,7 @@ export class FireListComponent implements OnInit {
     if (vote) {
       size = size * vote;
     }
-    return `font-size: ${size}px`;
+    return this.domSan.bypassSecurityTrustStyle(`font-size: ${size}px`);
   }
 
   voteUp(id) {
