@@ -2,3 +2,5 @@
   map-viewer works!
 </p>
 <div id='map-container'></div>
+<webcam [trigger]='trigger' (imageCapture)='image($event)'></webcam>
+<button (click)='click()'>Test</button>

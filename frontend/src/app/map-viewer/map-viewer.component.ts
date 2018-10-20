@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 declare var require: any;
 const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 declare var omnivore: any;
@@ -11,6 +12,26 @@ declare var L: any;
 })
 export class MapViewerComponent implements OnInit {
 
+  trigger = new Subject();
+
+  async click() {
+    const position = await this.getLocation();
+    this.trigger.next();
+  }
+
+  getLocation() {
+    return new Promise((resolve, reject) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(resolve);
+      } else {
+      }
+    });
+  }
+
+  image(event) {
+    console.log(event);
+  }
+
   constructor() { }
 
   ngOnInit() {
@@ -21,7 +42,7 @@ export class MapViewerComponent implements OnInit {
     mapboxgl.accessToken = 'pk.eyJ1IjoiY2ZvcmFuZCIsImEiOiJjam5oZmNrZmswNzY3M3Byczg4cmlkbHB4In0.mJGkFKq1OLdz1Ps7STPPUA'//'pk.eyJ1IjoiY2FydGU3MDAwIiwiYSI6ImNpbmdsZm41ZzA1d2l1a2x5aG13cGR3dXMifQ.4xGvifRUQjT1DBctXy2lwA';
     const map = new mapboxgl.Map({
       container: 'map-container',
-      // style: 'mapbox://styles/cforand/cjnhgf9zk16wr2ss5xcsgqfhp'
+      //style: 'mapbox://styles/cforand/cjnhgf9zk16wr2ss5xcsgqfhp'
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
@@ -40,8 +61,18 @@ export class MapViewerComponent implements OnInit {
       //     "fill-opacity": 0.4
       //   },
       //   "filter": ["==", "$type", "Polygon"]
-      // });
-
+      // });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                "layers": [
+      //   {
+      //     "id": "water",
+      //     "source": "mapbox-streets",
+      //     "source-layer": "water",
+      //     "type": "fill",
+      //     "paint": {
+      //       "fill-color": "#00ffff"
+      //     }
+      //   }
+      // ]
+      // `
       map.addLayer({
         "id": "earthquakes-heat",
         "type": "heatmap",
@@ -50,9 +81,8 @@ export class MapViewerComponent implements OnInit {
           // Increase the heatmap weight based on frequency and property magnitude
           // "heatmap-weight": [
           //   "interpolate",
-          //   ["linear"],
+          //   ["linear"],      
           //   ["heatmap-density"],
-          //   0,
           //   "hsla(240, 100%, 50%, 0)",
           //   0.6,
           //   "hsl(46, 100%, 50%)",
@@ -154,3 +184,22 @@ export class MapViewerComponent implements OnInit {
   }
 
 }
+"layers": [
+  {
+    "id": "water",
+    "source": "mapbox-streets",
+    "source-layer": "water",
+    "type": "fill",
+    "paint": {
+      "fill-color": "#00ffff"
+  // "layers": [
+  //   {
+  //     "id": "water",
+  //     "source": "mapbox-streets",
+  //     "source-layer": "water",
+  //     "type": "fill",
+  //     "paint": {
+  //       "fill-color": "#00ffff"
+  //     }
+  //   }
+  // ]

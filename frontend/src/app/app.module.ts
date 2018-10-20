@@ -9,6 +9,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { ReportFireComponent } from './report-fire/report-fire.component';
 import { RouterModule } from '@angular/router';
 import { MapViewerComponent } from './map-viewer/map-viewer.component';
+import { WebcamModule } from 'ngx-webcam';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MapViewerComponent } from './map-viewer/map-viewer.component';
     MapViewerComponent,
   ],
   imports: [
+    WebcamModule,
     RouterModule.forRoot([
       { path: '', component: ReportFireComponent },
       { path: 'map', component: MapViewerComponent }
