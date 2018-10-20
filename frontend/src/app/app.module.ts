@@ -21,8 +21,9 @@ import { WebcamModule } from 'ngx-webcam';
   imports: [
     WebcamModule,
     RouterModule.forRoot([
-      { path: '', component: ReportFireComponent },
-      { path: 'map', component: MapViewerComponent }
+      { path: 'map', component: MapViewerComponent },
+      { path: '', component: AboutPageComponent},
+      { path: 'report', component: ReportFireComponent}
     ]),
     BrowserModule,
     DataModule,
