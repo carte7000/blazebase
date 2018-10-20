@@ -1,5 +1,7 @@
 # blazebase
 
+### Feature list
+
 [ ] - Report a fire + send a photo
 [ ] - Judge a fire 🔥 Blazing or not 🌊 
 [ ] - Forecast
