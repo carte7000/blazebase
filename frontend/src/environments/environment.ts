@@ -14,6 +14,7 @@ const config = {
 export const environment = {
   production: false,
   firebase: config,
+  mapbox: 'pk.eyJ1IjoiY2FydGU3MDAwIiwiYSI6ImNpbmdsZm41ZzA1d2l1a2x5aG13cGR3dXMifQ.4xGvifRUQjT1DBctXy2lwA'
 };
 
 /*

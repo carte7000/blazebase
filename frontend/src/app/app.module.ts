@@ -8,16 +8,18 @@ import { DataModule } from './data/data.module';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ReportFireComponent } from './report-fire/report-fire.component';
 import { RouterModule } from '@angular/router',
+import { MapViewerComponent } from './map-viewer/map-viewer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutPageComponent,
-    ReportFireComponent
+    ReportFireComponent,
+    MapViewerComponent,
   ],
   imports: [
     RouterModule.forRoot([
-      { path: '', component: ReportFireComponent}
+      { path: '', component: ReportFireComponent }
     ]),
     BrowserModule,
     DataModule,
