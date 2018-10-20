@@ -1,16 +1,24 @@
-<br />
+<br/>
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <br />
-      <h2>Sooner a fire is listed, <br />
-        Faster actions can be taken <br />
-        And better are the chances of limiting negative impacts. </h2><br />
-      <h3>You notice a fire?</h3>
+      <br/>
+        <div class="container fluid">
+            <div class="row">
+              <div class="col-md-12 report text-center">
+                <h5>Sooner a fire is listed, 
+                  faster actions can be taken
+                  and better are the chances of limiting negative impacts.</h5>
+              </div>
+            </div>
+        </div>
+        <br/>
+      <h4>You notice a fire?</h4>
       <p>Please take a photo of it with blazebase app. It only takes few minutes, but can make a big difference!</p>
       <webcam [trigger]='trigger' (imageCapture)='image($event)'></webcam><br/>
-      <button (click)='click()'>Test</button>
-      <br />
+      <button (click)='click()'><strong>SEND</strong></button>
+      <br/>
     </div>
   </div>
 </div>
+<br/>

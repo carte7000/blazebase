@@ -1,7 +1,26 @@
 .col-md-12 {
     box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
+    background-color: #ffffff;
 }
 
-.h2 {
+h5{
+    color: #ffffff;
+}
+
+h4 {
     color : #F75C03;
 }
+
+button {
+    color: #ffffff;
+    background-color: #F18F01;
+    border-color: #F75C03; 
+    padding: 5px 30px;
+    border-radius: 10px;
+    margin: 20px;
+}
+.report {
+    background-color: #119DA4;
+    padding: 10px;
+}
+
