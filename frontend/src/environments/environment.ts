@@ -2,8 +2,18 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const config = {
+  apiKey: 'AIzaSyA7IlS0S_mOFVrPpBp8HBRwihzsDjaegRs',
+  authDomain: 'blazebase-bcc0a.firebaseapp.com',
+  databaseURL: 'https://blazebase-bcc0a.firebaseio.com',
+  projectId: 'blazebase-bcc0a',
+  storageBucket: 'blazebase-bcc0a.appspot.com',
+  messagingSenderId: '568610930926'
+};
+
 export const environment = {
-  production: false
+  production: false,
+  firebase: config,
 };
 
 /*
