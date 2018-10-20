@@ -19,7 +19,27 @@ export class UploadService {
 
   async createDocument(location: Position, dataUrl: string) {
     return await this.firestore.collection('fires').add({
-      position: { lat: location.coords.latitude, long: location.coords.longitude }, image: dataUrl
+      position: { lat: location.coords.latitude, long: location.coords.longitude }, image: dataUrl, vote: 1,
+    });
+  }
+
+  async voteUp(id) {
+    this.firestore.doc(`fires/${id}`).get().subscribe((snap) => {
+      const { vote, ...rest } = snap.data();
+      this.firestore.doc((`fires/${id}`)).set({
+        vote: vote + 1,
+        ...rest
+      });
+    });
+  }
+
+  async voteDown(id) {
+    this.firestore.doc(`fires/${id}`).get().subscribe((snap) => {
+      const { vote, ...rest } = snap.data();
+      this.firestore.doc((`fires/${id}`)).set({
+        vote: vote - 1,
+        ...rest
+      });
     });
   }
 

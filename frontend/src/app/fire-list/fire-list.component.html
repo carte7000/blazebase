@@ -3,7 +3,11 @@
 </p>
 <ul>
   <li *ngFor='let fire of fires$ | async'>
-    {{fire.long}} {{fire.lat}}
+    {{fire.position.long}} {{fire.position.lat}}
+    {{fire.vote + 0}}
     <img [src]='fire.image' />
+    <button (click)='voteUp(fire.id)'>Hot 🔥</button>
+    <span [style]='getStyle(fire.vote)'>🔥</span>
+    <button (click)='voteDown(fire.id)'>Or not 🌊</button>
   </li>
 </ul>

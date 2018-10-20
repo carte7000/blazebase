@@ -27,15 +27,24 @@ export class MapViewerComponent implements OnInit {
     });
 
     map.on('load', function () {
-
+      // map.addSource('the_immage', {
+      //   type: 'image',
+      //   url: 'https://s4.aconvert.com/convert/p3r68-cdx67/cbn7l-rlly7.svg',
+      //   coordinates: [
+      //       [-80.425, 46.437],
+      //       [-71.516, 46.437],
+      //       [-71.516, 37.936],
+      //       [-80.425, 37.936],
+      //   ]
+      // }
       map.addSource('national-park', {
         type: 'geojson',
-        data: '/assets/daily_data-2018-10-20 13:16:26.604023.geojson'
+        data: '/assets/test.geojson'
       });
 
       // map.addLayer({
-      //   "id": "earthquakes-heat",
-      //   "type": "heatmap",
+      //   "id": "flame-icon",
+      //   "type": "icon",
       //   "source": "national-park",
       //   "paint": {
 

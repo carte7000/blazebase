@@ -20,4 +20,20 @@ export class FireListComponent implements OnInit {
     this.fires$.pipe(tap(console.log)).subscribe();
   }
 
+  getStyle(vote: number) {
+    let size = 12;
+    if (vote) {
+      size = size * vote;
+    }
+    return `font-size: ${size}px`;
+  }
+
+  voteUp(id) {
+    this.upload.voteUp(id);
+  }
+
+  voteDown(id) {
+    this.upload.voteDown(id);
+  }
+
 }
