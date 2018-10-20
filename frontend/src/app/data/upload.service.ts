@@ -40,6 +40,7 @@ export class UploadService {
         vote: vote - 1,
         ...rest
       });
+
     });
   }
 

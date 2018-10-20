@@ -38,4 +38,5 @@ export class FireListComponent implements OnInit {
     this.upload.voteDown(id);
   }
 
+
 }

@@ -39,6 +39,7 @@ export class MapViewerComponent implements OnInit {
       // }
       map.addSource('national-park', {
         type: 'geojson',
+
         data: '/assets/test.geojson'
       });
 
