@@ -12,26 +12,6 @@ declare var L: any;
 })
 export class MapViewerComponent implements OnInit {
 
-  trigger = new Subject();
-
-  async click() {
-    const position = await this.getLocation();
-    this.trigger.next();
-  }
-
-  getLocation() {
-    return new Promise((resolve, reject) => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(resolve);
-      } else {
-      }
-    });
-  }
-
-  image(event) {
-    console.log(event);
-  }
-
   constructor() { }
 
   ngOnInit() {
@@ -43,7 +23,7 @@ export class MapViewerComponent implements OnInit {
     const map = new mapboxgl.Map({
       container: 'map-container',
       //style: 'mapbox://styles/cforand/cjnhgf9zk16wr2ss5xcsgqfhp'
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/mapbox/satellite-streets-v9'
     });
 
     map.on('load', function () {
@@ -73,40 +53,13 @@ export class MapViewerComponent implements OnInit {
       //   }
       // ]
       // `
+
       map.addLayer({
         "id": "earthquakes-heat",
         "type": "heatmap",
         "source": "national-park",
         "paint": {
-          // Increase the heatmap weight based on frequency and property magnitude
-          // "heatmap-weight": [
-          //   "interpolate",
-          //   ["linear"],      
-          //   ["heatmap-density"],
-          //   "hsla(240, 100%, 50%, 0)",
-          //   0.6,
-          //   "hsl(46, 100%, 50%)",
-          //   0.7,
-          //   "hsl(38, 100%, 50%)",
-          //   0.8,
-          //   "hsl(33, 94%, 51%)",
-          //   0.9,
-          //   "hsl(20, 100%, 50%)",
-          //   1,
-          //   "red"
-          // ],
-          // // Increase the heatmap color weight weight by zoom level
-          // // heatmap-intensity is a multiplier on top of heatmap-weight
-          // "heatmap-intensity": [
-          //   "interpolate",
-          //   ["linear"],
-          //   ["zoom"],
-          //   0, 1,
-          //   9, 3
-          // ],
-          // // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
-          // // Begin color ramp at 0-stop with a 0-transparancy color
-          // // to create a blur-like effect.
+
           "heatmap-color": [
             "interpolate",
             ["linear"],
@@ -132,13 +85,13 @@ export class MapViewerComponent implements OnInit {
             10, 50
           ],
           // // Transition from heatmap to circle layer by zoom level
-          // "heatmap-opacity": [
-          //   "interpolate",
-          //   ["linear"],
-          //   ["zoom"],
-          //   7, 1,
-          //   9, 0
-          // ],
+          "heatmap-opacity": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            0, 0,
+            22, 1
+          ],
         }
       }, 'waterway-label');
 
@@ -182,24 +135,4 @@ export class MapViewerComponent implements OnInit {
     //   })
     //   .addTo(map);
   }
-
 }
-"layers": [
-  {
-    "id": "water",
-    "source": "mapbox-streets",
-    "source-layer": "water",
-    "type": "fill",
-    "paint": {
-      "fill-color": "#00ffff"
-  // "layers": [
-  //   {
-  //     "id": "water",
-  //     "source": "mapbox-streets",
-  //     "source-layer": "water",
-  //     "type": "fill",
-  //     "paint": {
-  //       "fill-color": "#00ffff"
-  //     }
-  //   }
-  // ]
