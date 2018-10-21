@@ -80,7 +80,7 @@ export class UploadService {
 
   async createDocument(location: Position, dataUrl: string) {
     const { result }: any = await this.aiResult(dataUrl);
-    const isFire = !!result.tags.find((x) => x.name === 'fire');
+    const isFire = !!result.description.tags.find((x) => x === 'fire' || x === 'smoke');
     console.log(isFire);
     return await this.firestore.collection('fires').add({
       isFire,
