@@ -30,8 +30,8 @@ import { FireListComponent } from './fire-list/fire-list.component';
     AngularFireStorageModule,
     AngularFirestoreModule,
     RouterModule.forRoot([
-      { path: 'list', component: FireListComponent },
-      { path: 'map', component: MapViewerComponent },
+      { path: 'fire-list', component: FireListComponent },
+      { path: 'map-viewer', component: MapViewerComponent },
       { path: '', component: AboutPageComponent },
       { path: 'report', component: ReportFireComponent }
     ]),
