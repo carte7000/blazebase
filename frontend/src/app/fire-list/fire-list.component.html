@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12 text-center">
           <br/>
-          <h4>List of reported fires</h4>
+          <h4><strong>List of reported fires</strong></h4>
           <br/>
           <ul>
               <li *ngFor='let fire of fires$ | async'>
@@ -14,10 +14,10 @@
                             <h5>Location of fire</h5>
                             {{fire.position.long}} {{fire.position.lat}}<br/>            
                         </div>
-                      <div class="col-md-7 text-center">
+                      <div class="col-md-6 text-center">
                           <img [src]='fire.image' />
                       </div>
-                      <div class="col-md-3 text-center">
+                      <div class="col-md-4 text-center">
                           <button (click)='voteUp(fire.id)'>Hot 🔥</button>
 
                 <button (click)='voteDown(fire.id)'>Or not 🌊</button><br/>
