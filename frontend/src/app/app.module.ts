@@ -15,6 +15,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FireListComponent } from './fire-list/fire-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,15 +30,17 @@ import { FireListComponent } from './fire-list/fire-list.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'fire-list', component: FireListComponent },
       { path: 'map-viewer', component: MapViewerComponent },
-      { path: '', component: AboutPageComponent },
+      { path: '', pathMatch: 'full', redirectTo: 'map-viewer' },
+      { path: 'about', component: AboutPageComponent },
       { path: 'report', component: ReportFireComponent }
     ]),
     BrowserModule,
     DataModule,
-    ServiceWorkerModule.register('custom.js', { enabled: environment.production || true })
+    ServiceWorkerModule.register('custom.js', { enabled: environment.production })
   ],
   providers: [UploadService],
   bootstrap: [AppComponent]

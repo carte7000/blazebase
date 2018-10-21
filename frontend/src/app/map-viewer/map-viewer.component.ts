@@ -22,39 +22,66 @@ export class MapViewerComponent implements OnInit {
     mapboxgl.accessToken = 'pk.eyJ1IjoiY2ZvcmFuZCIsImEiOiJjam5oZmNrZmswNzY3M3Byczg4cmlkbHB4In0.mJGkFKq1OLdz1Ps7STPPUA'//'pk.eyJ1IjoiY2FydGU3MDAwIiwiYSI6ImNpbmdsZm41ZzA1d2l1a2x5aG13cGR3dXMifQ.4xGvifRUQjT1DBctXy2lwA';
     const map = new mapboxgl.Map({
       container: 'map-container',
-      // style: 'mapbox://styles/cforand/cjnhgf9zk16wr2ss5xcsgqfhp'
       style: 'mapbox://styles/mapbox/satellite-streets-v9'
     });
 
     map.on('load', function () {
-      map.addSource('national-park', {
-        type: 'geojson',
 
+      // map.addSource('the_image', {
+      //   type: 'image',
+      //   url: 'https://s4.aconvert.com/convert/p3r68-cdx67/cbn7l-rlly7.svg',
+      //   coordinates: [
+      //     [-80.425, 46.437],
+      //     [-71.516, 46.437],
+      //     [-71.516, 37.936],
+      //     [-80.425, 37.936],
+      //   ]
+      // })
+
+      map.addSource('worldwide_fires', {
+        type: 'geojson',
         data: '/assets/test.geojson'
       });
 
-      map.addLayer({
-        "id": "earthquakes-heat",
-        "type": "heatmap",
-        "source": "national-park",
-        "paint": {
+      // map.addLayer({
+      //   'id': 'flame-icon',
+      //   'type': 'icon',
+      //   'source': 'the_image',
+      // })
 
-          "heatmap-color": [
-            "interpolate",
-            ["linear"],
-            ["heatmap-density"],
-            0, "rgba(8,8,253,0)",
-            0.8, "rgba(255,195,0,1)",
-            0.85, "rgba(255,162,0,1)",
-            0.9, "rgba(248,142,13,1)",
-            0.95, "rgba(255,85,0,1)",
-            1, "rgba(255,0,0,1)"
+      // map.addLayer({
+      //   'id': 'Circle_precise_point',
+      //   'type': 'Circle',
+      //   'source': {
+      //     'type': 'geojson',
+      //     'data': '/assets/test.geojson'
+      //   },
+      //   'paint': {
+      //     'circle-color': '#D49A66',
+      //   })
+
+      map.addLayer({
+        'id': 'earthquakes-heat',
+        'type': 'heatmap',
+        'source': 'worldwide_fires',
+        'paint': {
+
+          'heatmap-color': [
+            'interpolate',
+            ['linear'],
+            ['heatmap-density'],
+            0, 'rgba(8,8,253,0)',
+            0.8, 'rgba(255,195,0,1)',
+            0.85, 'rgba(255,162,0,1)',
+            0.9, 'rgba(248,142,13,1)',
+            0.95, 'rgba(255,85,0,1)',
+            1, 'rgba(255,0,0,1)'
           ],
           // // Adjust the heatmap radius by zoom level
-          "heatmap-radius": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
+          'heatmap-radius': [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
             0, 1.5,
             1, 5,
             2, 7,
@@ -64,10 +91,10 @@ export class MapViewerComponent implements OnInit {
             10, 50
           ],
           // // Transition from heatmap to circle layer by zoom level
-          "heatmap-opacity": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
+          'heatmap-opacity': [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
             0, 0.6,
             1, 0.65,
             2, 0.7,

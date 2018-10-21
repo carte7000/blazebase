@@ -1,38 +1,38 @@
-<br/>
+<br />
 <div class="container">
     <div class="row">
-      <div class="col-md-12 text-center">
-          <br/>
-          <h4><strong>List of reported fires</strong></h4>
-          <br/>
-          <ul>
-              <li *ngFor='let fire of fires$ | async'>
-            
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-2 text-center">
-                            <i class="fas fa-map-marker-alt"></i><br/>
-                            <h5><strong>Location of fire</strong></h5>
-                            {{fire.position.long}} {{fire.position.lat}}<br/>            
+        <div class="col-md-12 text-center">
+            <br />
+            <h4><strong>List of reported fires</strong></h4>
+            <br />
+            <ul>
+                <li *ngFor='let fire of fires$ | async'>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2 text-center">
+                                <i class="fas fa-map-marker-alt"></i><br />
+                                <h5><strong>Location of fire</strong></h5>
+                                {{fire.position.long}} {{fire.position.lat}}<br />
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <img [src]='fire.image' />
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <button (click)='voteUp(fire.id)'>Hot 🔥</button>
+
+                                <button (click)='voteDown(fire.id)'>Or not 🌊</button><br />
+                                <span [style]='getStyle(fire.vote)'>🔥</span><br />
+                                <h3>Ai result: {{fire.isFire}}</h3>
+                                <h3>Fire rating</h3>
+                                {{fire.vote + 0}}<br />
+                            </div>
                         </div>
-                      <div class="col-md-6 text-center">
-                          <img [src]='fire.image' />
-                      </div>
-                      <div class="col-md-4 text-center">
-                          <button (click)='voteUp(fire.id)'>Hot 🔥</button>
-
-                <button (click)='voteDown(fire.id)'>Or not 🌊</button><br/>
-                <span [style]='getStyle(fire.vote)'>🔥</span><br/>
-                <h3>Fire rating</h3>
-                {{fire.vote + 0}}<br/>
-                      </div>
                     </div>
-                </div>
-            <br/>
-              </li>
+                    <br />
+                </li>
             </ul>
-          <br/>
-      </div>
+            <br />
+        </div>
     </div>
-  </div>
-
+</div>
