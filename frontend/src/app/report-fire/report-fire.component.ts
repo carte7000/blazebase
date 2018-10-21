@@ -33,6 +33,7 @@ export class ReportFireComponent implements OnInit {
   async image(event) {
     const position = await this.getLocation();
     const doc = await this.upload.createDocument(position as Position, event.imageAsDataUrl);
+    alert('Report uploaded');
     // const test = await this.upload.upload(`${doc.id}.dataUrl`, event.imageAsDataUrl);
     // console.log(test);
     console.log(event);

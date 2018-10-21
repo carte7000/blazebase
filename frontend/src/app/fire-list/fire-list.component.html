@@ -1,36 +1,36 @@
-<br/>
+<br />
 <div class="container">
     <div class="row">
-      <div class="col-md-12 text-center">
-          <br/>
-          <h4>List of reported fires</h4>
-          <br/>
-          <ul>
-              <li *ngFor='let fire of fires$ | async'>
-            
-            <h5>Location of fire</h5>
-                {{fire.position.long}} {{fire.position.lat}}<br/>
+        <div class="col-md-12 text-center">
+            <br />
+            <h4>List of reported fires</h4>
+            <br />
+            <ul>
+                <li *ngFor='let fire of fires$ | async'>
 
-                <div class="container">
-                    <div class="row">
-                      <div class="col-md-7 text-center">
-                          <img [src]='fire.image' />
-                      </div>
-                      <div class="col-md-5 text-center">
-                          <button (click)='voteUp(fire.id)'>Hot 🔥</button>
+                    <h5>Location of fire</h5>
+                    {{fire.position.long}} {{fire.position.lat}}<br />
 
-                <button (click)='voteDown(fire.id)'>Or not 🌊</button><br/>
-                <span [style]='getStyle(fire.vote)'>🔥</span><br/>
-                <h3>Fire rating</h3>
-                {{fire.vote + 0}}<br/>
-                      </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 text-center">
+                                <img [src]='fire.image' />
+                            </div>
+                            <div class="col-md-5 text-center">
+                                <button (click)='voteUp(fire.id)'>Hot 🔥</button>
+
+                                <button (click)='voteDown(fire.id)'>Or not 🌊</button><br />
+                                <span [style]='getStyle(fire.vote)'>🔥</span><br />
+                                <h3>Ai result: {{fire.isFire}}</h3>
+                                <h3>Fire rating</h3>
+                                {{fire.vote + 0}}<br />
+                            </div>
+                        </div>
                     </div>
-                </div>
-            <br/>
-              </li>
+                    <br />
+                </li>
             </ul>
-          <br/>
-      </div>
+            <br />
+        </div>
     </div>
-  </div>
-
+</div>
