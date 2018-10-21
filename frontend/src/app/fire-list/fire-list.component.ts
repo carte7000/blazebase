@@ -19,7 +19,8 @@ export class FireListComponent implements OnInit {
 
   async ngOnInit() {
     this.fires$ = await this.upload.getFires();
-    this.fires$.pipe(tap(console.log)).subscribe();
+    this.fires$.pipe(tap(console.log)).subscribe(() => {
+    });
   }
 
   getStyle(vote: number) {

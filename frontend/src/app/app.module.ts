@@ -37,7 +37,7 @@ import { FireListComponent } from './fire-list/fire-list.component';
     ]),
     BrowserModule,
     DataModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('custom.js', { enabled: environment.production || true })
   ],
   providers: [UploadService],
   bootstrap: [AppComponent]
